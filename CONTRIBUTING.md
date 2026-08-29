@@ -47,6 +47,10 @@ Antes de solicitar revisão, confirme:
 - [ ] nenhuma dependência desnecessária adicionada;
 - [ ] diff revisado por um contexto independente quando aplicável.
 
+## Idioma
+
+Código e artefatos técnicos executáveis devem ser escritos em inglês, incluindo identificadores, testes, comentários, logs, exceções, configurações e textos mantidos diretamente na aplicação. A política completa e suas exceções estão em [`AGENTS.md`](AGENTS.md). A documentação do projeto pode permanecer em português.
+
 ## Pull requests
 
 Prefira mudanças pequenas e uma finalidade por PR. A descrição deve incluir:

@@ -31,4 +31,4 @@ Não crie ADR para detalhes locais, nomes, pequenas refatorações ou escolhas f
 
 | ADR | Título | Estado |
 |---|---|---|
-| — | Nenhuma decisão registrada ainda | — |
+| [0001](0001-java-javafx-mvp.md) | Java e JavaFX para o MVP local | Aceito |

@@ -2,7 +2,7 @@
 
 Aplicação para organizar tarefas, reuniões e períodos trabalhados por meio de arquivos de texto simples, preservando uma experiência próxima à de um bloco de notas.
 
-> **Estado:** descoberta e definição do MVP. A arquitetura e a tecnologia ainda não foram escolhidas; não há aplicação executável neste momento.
+> **Estado:** descoberta e definição do MVP. Java 21, JavaFX e Maven foram escolhidos para a primeira aplicação desktop; ainda não há aplicação executável.
 
 ## Visão geral
 
@@ -35,14 +35,17 @@ O produto interpreta marcações textuais para acompanhar estados, mover itens e
 - estados textuais iniciais dos itens;
 - aplicação inicialmente local e individual;
 - evolução futura para múltiplos dispositivos.
+- Java 21 e JavaFX para o MVP desktop local;
+- primeira janela com navegação por semanas/dias, resumo diário e editor de texto.
 
 ### Pendente de decisão
 
 - formato canônico dos documentos diários;
 - regras exatas de movimentação entre dias;
 - critérios e fórmulas das estatísticas;
-- arquitetura e tecnologias;
 - persistência, sincronização e estratégia offline;
+- localização dos documentos e política de salvamento;
+- estratégia da futura interface Android;
 - requisitos não funcionais e modelo de distribuição.
 
 ## Desenvolvimento

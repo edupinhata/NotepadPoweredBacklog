@@ -17,10 +17,34 @@ O documento diário contém três seções:
 #### Critérios de aceite preliminares
 
 - [ ] O usuário consegue criar, abrir, editar e salvar o documento de um dia.
+- [ ] A janela apresenta no painel esquerdo as semanas do ano selecionado, com os respectivos dias agrupados.
+- [ ] A semana atual começa expandida; as demais podem ser expandidas sem bloquear a interface.
+- [ ] Selecionar um dia apresenta seu documento no editor à direita.
+- [ ] Cada dia apresenta o resumo `número de reuniões | número de tarefas | horas trabalhadas`.
+- [ ] O número de reuniões e tarefas considera todos os itens reconhecidos, independentemente do estado.
+- [ ] As horas trabalhadas correspondem à soma dos períodos válidos, sem contar os intervalos entre eles.
+- [ ] O resumo é recalculado a partir do documento salvo ou validamente interpretado.
 - [ ] O aplicativo reconhece as três seções definidas.
 - [ ] Texto não reconhecido é preservado, não descartado silenciosamente.
 - [ ] Um erro de sintaxe é informado sem corromper o arquivo.
-- [ ] TODO: definir nomes, ordem e sintaxe exata das seções.
+
+Formato inicial das seções:
+
+```text
+# Meetings
+[ ] Meeting 1
+[ ] Meeting 2
+
+# To Do
+[ ] Task 1
+[ ] Task 2
+
+# Worked
+09:00 - 12:30
+14:00 - 20:00
+```
+
+Os títulos acima são a sintaxe canônica inicial. Internacionalização de títulos fica fora da primeira fatia e não deverá alterar silenciosamente arquivos já existentes.
 
 ### 2. Estados de tarefas e reuniões
 
@@ -95,10 +119,13 @@ Formato preliminar:
 
 Preencher antes da implementação:
 
-- **Plataformas suportadas:** TODO
+- **Plataforma inicial:** desktop local em Windows 10 ou posterior; outros sistemas desktop permanecem candidatos após validação do empacotamento.
+- **Tecnologia:** Java 21, JavaFX e Maven, conforme ADR 0001.
+- **Portabilidade:** domínio, parser e casos de uso não dependem de JavaFX; o núcleo deve poder ser reutilizado em uma futura interface Android.
+- **Desempenho da navegação:** o agrupamento anual não deve exigir leitura bloqueante de todos os documentos na thread da interface.
+- **Acessibilidade:** navegação por teclado, foco visível e nomes acessíveis para árvore, editor e ações principais.
 - **Volume esperado de documentos:** TODO
 - **Tempo máximo de abertura/processamento:** TODO
-- **Requisitos de acessibilidade:** TODO
 - **Estratégia de backup e recuperação:** TODO
 - **Privacidade e telemetria:** TODO
 - **Compatibilidade entre versões do formato:** TODO
@@ -117,6 +144,6 @@ Preencher antes da implementação:
 
 1. O texto é a fonte de verdade ou uma representação exportada?
 2. Qual formato canônico identifica data e seções?
-3. Qual plataforma local será atendida primeiro?
-4. O MVP exige funcionamento offline?
-5. O aplicativo deve observar arquivos externos ou fornecer seu próprio editor?
+3. Onde os documentos serão armazenados e como serão nomeados?
+4. O salvamento será explícito, automático ou ambos?
+5. O aplicativo observará alterações feitas externamente nos arquivos?
