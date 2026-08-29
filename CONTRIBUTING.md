@@ -63,16 +63,15 @@ Prefira mudanças pequenas e uma finalidade por PR. A descrição deve incluir:
 
 ## Comandos do projeto
 
-Serão preenchidos quando a stack for aprovada:
+Execute na raiz do repositório com JDK 21 e Maven 3.9 ou posterior:
 
-```text
-Instalação: TODO
-Execução: TODO
-Testes: TODO
-Lint: TODO
-Formatação: TODO
-Build: TODO
+```bash
+mvn test        # testes automatizados
+mvn verify      # compilação, testes e empacotamento do JAR
+mvn javafx:run  # prévia local da interface
 ```
+
+O compilador usa `-Xlint:all` e trata avisos como erros. Formatação automática e análise de dependências ainda não possuem comandos próprios; não declare esses gates como disponíveis antes de serem introduzidos e verificados.
 
 ## Commits
 

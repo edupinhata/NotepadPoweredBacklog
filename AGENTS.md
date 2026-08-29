@@ -17,7 +17,7 @@ Em caso de conflito, não escolha silenciosamente. Registre a divergência e pe�
 
 ## 2. Estado atual
 
-O projeto está em descoberta. Java 21, JavaFX e Maven foram aprovados para o MVP desktop, mas ainda não existe esqueleto executável nem comandos de desenvolvimento verificados. Não invente decisões ausentes nem apresente funcionalidades planejadas como implementadas.
+O projeto possui uma primeira fatia vertical executável em Java 21, JavaFX e Maven. O parser, o resumo em memória e a prévia JavaFX estão implementados; persistência, navegação anual completa, estatísticas por intervalo e automação de movimentação continuam planejadas. Não invente decisões ausentes nem apresente funcionalidades planejadas como implementadas.
 
 ## 3. Fluxo obrigatório para mudanças
 
@@ -90,10 +90,10 @@ Preencher após a escolha da stack:
 - **Interface desktop:** JavaFX
 - **Gerenciador de dependências:** Maven
 - **Idioma do código:** inglês
-- **Instalação:** TODO
-- **Execução local:** TODO
-- **Testes:** TODO
-- **Lint/format:** TODO
-- **Análise de tipos:** TODO
-- **Build/empacotamento:** TODO
+- **Instalação:** JDK 21 e Maven 3.9+
+- **Execução local:** `mvn javafx:run`
+- **Testes:** `mvn test`
+- **Lint/format:** compilação com `-Xlint:all -Werror`; formatador dedicado pendente
+- **Análise de tipos:** compilador Java 21 durante `mvn verify`
+- **Build/empacotamento:** `mvn verify` produz o JAR; instalador autocontido pendente
 - **Verificações de segurança:** TODO

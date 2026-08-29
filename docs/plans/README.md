@@ -32,4 +32,4 @@ issue → teste → implementação → verificação → PR
 
 | Plano | Objetivo | Estado |
 |---|---|---|
-| — | Nenhum plano registrado ainda | — |
+| [Primeira fatia vertical do MVP](2026-08-29-mvp-first-vertical-slice.md) | Criar fundação executável, parser, resumo e prévia JavaFX em memória | Em execução |
