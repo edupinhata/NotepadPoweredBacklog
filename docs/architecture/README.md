@@ -1,6 +1,6 @@
 # Arquitetura
 
-A arquitetura ainda não foi escolhida. Esta área registra contexto, opções e decisões sem apresentar hipóteses como fatos implementados.
+O MVP será uma aplicação desktop local em Java 21 com JavaFX. A decisão e seus trade-offs estão registrados no [ADR 0001](adr/0001-java-javafx-mvp.md). Esta área descreve as fronteiras aprovadas sem apresentar funcionalidades planejadas como implementadas.
 
 ## Direcionadores conhecidos
 
@@ -10,18 +10,21 @@ A arquitetura ainda não foi escolhida. Esta área registra contexto, opções e
 - evolução futura possível para múltiplos dispositivos;
 - ausência de colaboração entre usuários no escopo atual;
 - necessidade de estatísticas e automações determinísticas.
+- desenvolvimento inicial em Java, com interface desktop JavaFX;
+- reutilização futura do núcleo em outras interfaces, inclusive Android.
+- código, testes e artefatos técnicos executáveis escritos em inglês.
 
 ## Decisões necessárias
 
-1. plataforma e modelo de distribuição inicial;
+1. sistemas operacionais desktop atendidos na primeira distribuição;
 2. texto como fonte de verdade ou como importação/exportação;
-3. formato canônico do documento diário;
-4. editor próprio ou integração com arquivos externos;
+3. localização e convenção de nomes dos documentos diários;
+4. salvamento explícito, automático ou ambos;
 5. persistência de metadados e índices;
 6. estratégia offline;
-7. limites entre domínio, parser, armazenamento e interface;
-8. backup, recuperação e compatibilidade;
-9. estratégia futura de sincronização e conflitos;
+7. backup, recuperação e compatibilidade;
+8. estratégia futura de sincronização e conflitos;
+9. abordagem da futura interface Android após experimento técnico;
 10. observabilidade e telemetria, se houver.
 
 ## Princípios provisórios
@@ -32,12 +35,12 @@ A arquitetura ainda não foi escolhida. Esta área registra contexto, opções e
 - evitar dependência da futura sincronização no desenho do primeiro MVP;
 - registrar decisões significativas como ADRs antes da implementação.
 
-## Modelo inicial a avaliar
+## Modelo inicial
 
-Uma arquitetura em camadas ou portas e adaptadores pode separar:
+Um monólito modular com dependências apontando para o domínio separará:
 
 ```text
-Interface local
+Interface JavaFX
       ↓
 Casos de uso
       ↓
@@ -46,7 +49,50 @@ Domínio puro
 Parser      Repositório de documentos
 ```
 
-Isto é apenas uma hipótese para avaliação, não uma decisão aceita.
+### Responsabilidades
+
+- **Interface JavaFX:** janela, navegação por semanas e dias, editor e apresentação de diagnósticos.
+- **Casos de uso:** abrir, editar, salvar e resumir um documento diário.
+- **Domínio:** tarefas, reuniões, períodos trabalhados, estados e cálculos.
+- **Parser/serializador:** transformação determinística entre texto e domínio, preservando conteúdo desconhecido.
+- **Repositório de documentos:** acesso seguro e substituível aos arquivos, sem vazar detalhes de I/O para o domínio.
+
+### Organização inicial do código
+
+O primeiro esqueleto usará um único módulo Maven, organizado por responsabilidade:
+
+```text
+src/main/java/<pacote-base>/
+├── domain/          # modelos, estados, períodos e cálculos puros
+├── application/     # casos de uso e portas
+├── infrastructure/
+│   └── file/        # leitura e gravação segura dos documentos
+└── ui/
+    └── javafx/      # janela, árvore, editor e células visuais
+
+src/test/java/<pacote-base>/
+├── domain/
+├── application/
+├── infrastructure/
+└── ui/
+```
+
+O nome definitivo do pacote-base será escolhido ao criar o esqueleto. Módulos Maven separados somente serão introduzidos se testes de fronteira, distribuição ou crescimento real justificarem o custo.
+
+Todos os nomes representados em português neste documento são descrições arquiteturais. Os pacotes, tipos, métodos, testes, comentários, mensagens técnicas e recursos implementados usarão inglês, conforme a política canônica do `AGENTS.md`.
+
+### Primeira fatia vertical
+
+```text
+selecionar dia
+  → carregar documento diário
+  → editar texto
+  → interpretar reuniões, tarefas e períodos
+  → salvar sem perda
+  → atualizar resumo do dia
+```
+
+A janela terá um `SplitPane`: à esquerda, um `TreeView` com semanas e dias; à direita, um `TextArea` para o documento diário. O resumo junto ao dia exibirá `reuniões | tarefas | horas trabalhadas` e será sempre derivado do conteúdo interpretado, nunca mantido como uma segunda fonte de verdade.
 
 ## Registros de decisão
 

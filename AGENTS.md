@@ -17,7 +17,7 @@ Em caso de conflito, não escolha silenciosamente. Registre a divergência e pe�
 
 ## 2. Estado atual
 
-O projeto está em descoberta. Não há stack, arquitetura ou comandos de desenvolvimento aprovados. Não invente decisões ausentes nem apresente funcionalidades planejadas como implementadas.
+O projeto está em descoberta. Java 21, JavaFX e Maven foram aprovados para o MVP desktop, mas ainda não existe esqueleto executável nem comandos de desenvolvimento verificados. Não invente decisões ausentes nem apresente funcionalidades planejadas como implementadas.
 
 ## 3. Fluxo obrigatório para mudanças
 
@@ -43,6 +43,22 @@ O projeto está em descoberta. Não há stack, arquitetura ou comandos de desenv
 - Não introduzir abstrações para necessidades hipotéticas.
 - Não deixar código comentado, depuração temporária ou TODOs sem contexto.
 - Atualizar documentação quando comportamento, comandos ou decisões mudarem.
+
+### 4.1. Idioma do código
+
+Todo conteúdo que faça parte do código ou de artefatos técnicos executáveis deve estar em inglês. Isso inclui:
+
+- nomes de pacotes, módulos, classes, interfaces, métodos, variáveis, constantes e arquivos de código;
+- nomes e descrições de testes, fixtures e dados de exemplo mantidos no código;
+- comentários, JavaDoc, TODOs técnicos e anotações de análise estática;
+- mensagens de log, exceções, validações e diagnósticos técnicos;
+- chaves de configuração, nomes de propriedades e scripts;
+- identificadores de persistência, caso banco de dados ou metadados estruturados sejam introduzidos;
+- textos da interface mantidos diretamente no código ou em arquivos de recursos.
+
+Novos termos de domínio devem receber um nome canônico em inglês no `docs/product/glossary.md` antes de serem usados de maneiras diferentes no código. Não misture português e inglês em identificadores.
+
+Documentação de produto, arquitetura e colaboração pode permanecer em português. Citações literais de entrada do usuário e testes de localização podem usar outro idioma quando esse idioma for o próprio comportamento testado. Se internacionalização for introduzida, as chaves dos recursos continuarão em inglês e os textos visíveis ficarão nos catálogos de tradução, não espalhados pelo código.
 
 ## 5. Segurança e privacidade
 
@@ -70,8 +86,10 @@ O projeto está em descoberta. Não há stack, arquitetura ou comandos de desenv
 
 Preencher após a escolha da stack:
 
-- **Linguagem/runtime:** TODO
-- **Gerenciador de dependências:** TODO
+- **Linguagem/runtime:** Java 21
+- **Interface desktop:** JavaFX
+- **Gerenciador de dependências:** Maven
+- **Idioma do código:** inglês
 - **Instalação:** TODO
 - **Execução local:** TODO
 - **Testes:** TODO
