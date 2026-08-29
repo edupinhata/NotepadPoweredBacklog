@@ -1,34 +1,31 @@
 # Registros de decisão arquitetural (ADRs)
 
-ADRs registram decisões técnicas importantes, seu contexto e suas consequências. Eles evitam que agentes e colaboradores rediscutam ou contradigam decisões sem perceber.
+ADRs explicam decisões técnicas importantes e duradouras. Devem reduzir dúvidas futuras, não criar burocracia.
+
+## Quando criar
+
+Use um ADR somente quando a decisão for:
+
+- cara ou difícil de reverter;
+- transversal a várias partes do sistema;
+- relevante para segurança, privacidade ou integridade de dados;
+- uma escolha entre alternativas legítimas que futuros colaboradores precisarão compreender.
+
+Não crie ADR para detalhes locais, nomes, pequenas refatorações ou escolhas facilmente reversíveis. Nesses casos, a issue ou o PR é suficiente.
 
 ## Convenção
 
 - Nome: `NNNN-titulo-curto.md`.
-- Numeração sequencial com quatro dígitos.
-- Uma decisão principal por arquivo.
-- Estados permitidos: `Proposto`, `Aceito`, `Rejeitado`, `Substituído` e `Obsoleto`.
-- Um ADR aceito não é reescrito para esconder a história; uma nova decisão o substitui.
+- Uma decisão por arquivo.
+- Estados: `Proposto`, `Aceito`, `Rejeitado`, `Substituído` ou `Obsoleto`.
+- Não reescreva um ADR aceito para esconder o histórico; crie outro que o substitua.
 
-## Processo
+## Processo enxuto
 
 1. copie [`0000-template.md`](0000-template.md);
-2. descreva contexto, forças e alternativas reais;
-3. registre riscos e consequências;
-4. submeta a decisão para aprovação;
-5. somente após o estado `Aceito`, trate a escolha como restrição do projeto;
-6. vincule implementação, plano ou ADR substituto quando aplicável.
-
-## Primeiros ADRs sugeridos
-
-- plataforma e modelo de distribuição do MVP;
-- texto como fonte de verdade;
-- formato canônico do documento diário;
-- estratégia de persistência e recuperação;
-- limites arquiteturais entre editor, domínio e infraestrutura;
-- linguagem e stack de desenvolvimento;
-- estratégia de testes;
-- estratégia futura de sincronização, apenas quando entrar no escopo.
+2. registre contexto, decisão, alternativas e consequências;
+3. obtenha aprovação e marque como `Aceito`;
+4. vincule o ADR à implementação quando isso ajudar a rastreabilidade.
 
 ## Índice
 

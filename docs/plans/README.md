@@ -1,35 +1,31 @@
 # Planos de implementação
 
-Planos transformam requisitos aprovados em tarefas pequenas, ordenadas e verificáveis. Eles não substituem visão, critérios de aceite ou ADRs.
+Planos são artefatos sob demanda para trabalhos em que uma sequência explícita reduz risco ou incerteza. A issue é a unidade principal de planejamento; o PR registra a entrega.
 
-## Quando criar um plano
+## Quando criar
 
-Crie um plano antes de:
+Crie um plano separado quando o trabalho:
 
-- implementar uma funcionalidade com múltiplas etapas;
-- alterar formato de dados ou compatibilidade;
-- coordenar mudanças em várias camadas;
-- delegar trabalho para agentes de IA;
-- executar migrações ou mudanças de segurança relevantes.
+- provavelmente ultrapassar um dia;
+- envolver várias camadas, componentes ou agentes;
+- alterar formato de dados, compatibilidade ou migrações;
+- possuir riscos relevantes de segurança ou integridade;
+- depender de uma ordem de execução que não seja óbvia.
+
+Para correções pequenas e funcionalidades comuns, mantenha objetivo, escopo e critérios de aceite na issue. Não crie um plano apenas para cumprir processo.
 
 ## Convenção
 
 - Nome: `AAAA-MM-DD-titulo-curto.md`.
-- Use [`plan-template.md`](plan-template.md).
-- Referencie requisitos, critérios de aceite e ADRs aplicáveis.
-- Divida o trabalho em fatias verticais pequenas.
-- Inclua testes e comandos de verificação reais.
-- Não invente comandos antes de a stack ser definida.
+- Use [`plan-template.md`](plan-template.md) como ponto de partida, removendo seções sem utilidade.
+- Referencie a issue e ADRs aplicáveis em vez de duplicar seu conteúdo.
+- Prefira checklists curtos e fatias verticais.
+- Inclua somente comandos existentes e verificáveis.
 
-## Ciclo de execução
+## Fluxo padrão
 
 ```text
-critério de aceite
-  → teste falhando pelo motivo esperado
-  → implementação mínima
-  → teste específico passando
-  → suíte completa e verificações
-  → revisão independente
+issue → teste → implementação → verificação → PR
 ```
 
 ## Índice
