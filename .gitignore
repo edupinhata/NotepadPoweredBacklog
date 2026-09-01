@@ -3,3 +3,5 @@
 *.iml
 /.vscode/
 /.ai-usage/
+__pycache__/
+*.py[cod]

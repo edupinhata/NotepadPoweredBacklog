@@ -25,6 +25,7 @@ O produto interpreta marcações textuais para acompanhar estados, mover itens e
 - [Planos de implementação](docs/plans/README.md)
 - [Como contribuir](CONTRIBUTING.md)
 - [Instruções para agentes de IA](AGENTS.md)
+- [Contabilidade de uso de IA](docs/engineering/ai-usage/README.md)
 
 ## Situação atual
 
@@ -70,6 +71,8 @@ Na raiz do repositório:
 mvn test
 mvn verify
 mvn javafx:run
+python -m unittest discover -s scripts/tests -v
+python scripts/ai_usage.py report
 ```
 
 `mvn javafx:run` abre a prévia local. O texto é mantido apenas em memória nesta fatia: fechar a janela descarta as alterações. Localização, nomes e política de salvamento dos documentos continuam pendentes de decisão e não devem ser inferidos da prévia.

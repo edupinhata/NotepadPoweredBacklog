@@ -8,6 +8,7 @@ O projeto está na fase de descoberta. Contribuições devem primeiro preservar 
 2. Consulte as decisões em `docs/architecture/adr/`.
 3. Confirme que a proposta pertence ao MVP ou registre por que o escopo deve mudar.
 4. Para trabalho com IA, siga também `AGENTS.md`.
+5. Antes de investigar trabalho substantivo com IA, inicie a medição com `python scripts/ai_usage.py start <work-id> --session-id <session-id>`.
 
 ## Propondo uma mudança
 
@@ -46,6 +47,7 @@ Antes de solicitar revisão, confirme:
 - [ ] documentação afetada atualizada;
 - [ ] nenhuma dependência desnecessária adicionada;
 - [ ] diff revisado por um contexto independente quando aplicável.
+- [ ] medição de uso de IA finalizada e `feature-costs.jsonl`/`.csv` atualizados.
 
 ## Idioma
 
@@ -69,6 +71,8 @@ Execute na raiz do repositório com JDK 21 e Maven 3.9 ou posterior:
 mvn test        # testes automatizados
 mvn verify      # compilação, testes e empacotamento do JAR
 mvn javafx:run  # prévia local da interface
+python -m unittest discover -s scripts/tests -v  # testes do coletor de uso de IA
+python scripts/ai_usage.py report                # valida JSONL e regenera CSV
 ```
 
 O compilador usa `-Xlint:all` e trata avisos como erros. Formatação automática e análise de dependências ainda não possuem comandos próprios; não declare esses gates como disponíveis antes de serem introduzidos e verificados.

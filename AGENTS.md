@@ -21,16 +21,32 @@ O projeto possui uma primeira fatia vertical executável em Java 21, JavaFX e Ma
 
 ## 3. Fluxo obrigatório para mudanças
 
-1. confirmar o requisito e os critérios de aceite;
-2. inspecionar arquivos e decisões existentes;
-3. criar ou atualizar um plano quando a mudança envolver múltiplas etapas;
-4. implementar uma pequena fatia vertical por vez;
-5. para comportamento de produção, escrever primeiro um teste que falhe pelo motivo esperado;
-6. escrever a implementação mínima que faça o teste passar;
-7. executar o teste específico e depois todas as verificações aplicáveis;
-8. revisar o diff quanto a escopo, segurança, simplicidade e documentação;
-9. obter revisão independente para mudanças de código não triviais;
-10. relatar comandos realmente executados e seus resultados.
+1. antes de investigar ou implementar trabalho substantivo com IA, iniciar a medição descrita na seção 3.1;
+2. confirmar o requisito e os critérios de aceite;
+3. inspecionar arquivos e decisões existentes;
+4. criar ou atualizar um plano quando a mudança envolver múltiplas etapas;
+5. implementar uma pequena fatia vertical por vez;
+6. para comportamento de produção, escrever primeiro um teste que falhe pelo motivo esperado;
+7. escrever a implementação mínima que faça o teste passar;
+8. executar o teste específico e depois todas as verificações aplicáveis;
+9. revisar o diff quanto a escopo, segurança, simplicidade e documentação;
+10. obter revisão independente para mudanças de código não triviais;
+11. finalizar a medição somente depois que testes e revisão terminarem;
+12. relatar comandos realmente executados e seus resultados.
+
+### 3.1. Medição obrigatória de uso de IA
+
+Para toda mudança substantiva realizada com IA:
+
+1. escolha um `work-id` único e identifique o ID exato da sessão Hermes atual;
+2. antes da primeira investigação, execute `python scripts/ai_usage.py start <work-id> --session-id <session-id>`;
+3. não prossiga se o snapshot inicial falhar e nunca tente reconstruí-lo por estimativa;
+4. conclua todos os subagentes, testes e revisão independente;
+5. execute `python scripts/ai_usage.py finish <work-id> --feature-name "<name>"` com metadados de PR/commit quando disponíveis;
+6. valide o histórico e regenere a tabela com `python scripts/ai_usage.py report`;
+7. inclua `docs/engineering/ai-usage/feature-costs.jsonl` e `feature-costs.csv` na entrega.
+
+O histórico JSONL é canônico; o CSV é derivado e não deve ser editado manualmente. Snapshots e locks em `.ai-usage/` permanecem locais e ignorados pelo Git. Nunca registre prompts, respostas, raciocínio, credenciais ou conteúdo de arquivos. Commit, push, espera de CI e mensagens finais ficam fora da fronteira padrão. Leia [`docs/engineering/ai-usage/README.md`](docs/engineering/ai-usage/README.md) para o contrato completo e os modos de falha.
 
 ## 4. Regras de engenharia
 
@@ -97,3 +113,4 @@ Preencher após a escolha da stack:
 - **Análise de tipos:** compilador Java 21 durante `mvn verify`
 - **Build/empacotamento:** `mvn verify` produz o JAR; instalador autocontido pendente
 - **Verificações de segurança:** TODO
+- **Medição de uso de IA:** `python scripts/ai_usage.py start|finish|report`
