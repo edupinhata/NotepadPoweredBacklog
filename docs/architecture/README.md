@@ -77,7 +77,7 @@ src/test/java/<pacote-base>/
 └── ui/
 ```
 
-O nome definitivo do pacote-base será escolhido ao criar o esqueleto. Módulos Maven separados somente serão introduzidos se testes de fronteira, distribuição ou crescimento real justificarem o custo.
+O pacote-base inicial é `io.github.edupinhata.notepadpoweredbacklog`. Módulos Maven separados somente serão introduzidos se testes de fronteira, distribuição ou crescimento real justificarem o custo.
 
 Todos os nomes representados em português neste documento são descrições arquiteturais. Os pacotes, tipos, métodos, testes, comentários, mensagens técnicas e recursos implementados usarão inglês, conforme a política canônica do `AGENTS.md`.
 
@@ -93,6 +93,8 @@ selecionar dia
 ```
 
 A janela terá um `SplitPane`: à esquerda, um `TreeView` com semanas e dias; à direita, um `TextArea` para o documento diário. O resumo junto ao dia exibirá `reuniões | tarefas | horas trabalhadas` e será sempre derivado do conteúdo interpretado, nunca mantido como uma segunda fonte de verdade.
+
+A primeira entrega implementa o parser, o resumo e uma prévia em memória com a semana e o dia atuais. O carregamento e salvamento sem perda, a árvore anual completa e a atualização do resumo junto a cada nó permanecem nas próximas fatias, após as decisões de persistência e política de salvamento.
 
 ## Registros de decisão
 

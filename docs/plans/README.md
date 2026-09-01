@@ -32,4 +32,5 @@ issue → teste → implementação → verificação → PR
 
 | Plano | Objetivo | Estado |
 |---|---|---|
-| — | Nenhum plano registrado ainda | — |
+| [Primeira fatia vertical do MVP](2026-08-29-mvp-first-vertical-slice.md) | Criar fundação executável, parser, resumo e prévia JavaFX em memória | Em execução |
+| [Coletor confiável de custo de desenvolvimento](2026-08-29-ai-usage-tracker.md) | Medir uso de IA por unidade de trabalho com persistência auditável e fail-closed | Em execução |

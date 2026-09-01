@@ -2,7 +2,7 @@
 
 Aplicação para organizar tarefas, reuniões e períodos trabalhados por meio de arquivos de texto simples, preservando uma experiência próxima à de um bloco de notas.
 
-> **Estado:** descoberta e definição do MVP. Java 21, JavaFX e Maven foram escolhidos para a primeira aplicação desktop; ainda não há aplicação executável.
+> **Estado:** primeira fatia vertical do MVP em desenvolvimento. Já existe uma prévia JavaFX executável que interpreta o documento canônico em memória e calcula o resumo diário; persistência e navegação anual ainda não foram implementadas.
 
 ## Visão geral
 
@@ -25,6 +25,7 @@ O produto interpreta marcações textuais para acompanhar estados, mover itens e
 - [Planos de implementação](docs/plans/README.md)
 - [Como contribuir](CONTRIBUTING.md)
 - [Instruções para agentes de IA](AGENTS.md)
+- [Contabilidade de uso de IA](docs/engineering/ai-usage/README.md)
 
 ## Situação atual
 
@@ -38,6 +39,15 @@ O produto interpreta marcações textuais para acompanhar estados, mover itens e
 - Java 21 e JavaFX para o MVP desktop local;
 - primeira janela com navegação por semanas/dias, resumo diário e editor de texto.
 
+### Implementado na primeira fatia
+
+- projeto Maven compilável com Java 21 e JavaFX 21;
+- parser em Java puro para as três seções canônicas;
+- contagem de reuniões e tarefas com estados reconhecidos;
+- soma de períodos válidos e diagnóstico de horários inválidos ou invertidos;
+- preservação integral do texto analisado em memória;
+- prévia JavaFX com semana e dia atuais, editor, resumo e diagnósticos.
+
 ### Pendente de decisão
 
 - formato canônico dos documentos diários;
@@ -50,7 +60,22 @@ O produto interpreta marcações textuais para acompanhar estados, mover itens e
 
 ## Desenvolvimento
 
-Os comandos de instalação, execução, testes, lint e build serão adicionados quando a stack for decidida e o esqueleto executável existir. Não presuma comandos ainda não documentados.
+### Pré-requisitos
+
+- JDK 21;
+- Maven 3.9 ou posterior.
+
+Na raiz do repositório:
+
+```bash
+mvn test
+mvn verify
+mvn javafx:run
+python -m unittest discover -s scripts/tests -v
+python scripts/ai_usage.py report
+```
+
+`mvn javafx:run` abre a prévia local. O texto é mantido apenas em memória nesta fatia: fechar a janela descarta as alterações. Localização, nomes e política de salvamento dos documentos continuam pendentes de decisão e não devem ser inferidos da prévia.
 
 ## Licença
 
