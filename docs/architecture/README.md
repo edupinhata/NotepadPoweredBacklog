@@ -94,7 +94,7 @@ selecionar dia
 
 A janela terá um `SplitPane`: à esquerda, um `TreeView` com semanas e dias; à direita, um `TextArea` para o documento diário. O resumo junto ao dia exibirá `reuniões | tarefas | horas trabalhadas` e será sempre derivado do conteúdo interpretado, nunca mantido como uma segunda fonte de verdade.
 
-A primeira entrega implementa o parser, o resumo e uma prévia em memória com a semana e o dia atuais. O carregamento e salvamento sem perda, a árvore anual completa e a atualização do resumo junto a cada nó permanecem nas próximas fatias, após as decisões de persistência e política de salvamento.
+A primeira entrega implementa o parser, o resumo e uma prévia em memória. A fatia de calendário anual acrescenta todas as datas do ano atual agrupadas por semana ISO e rascunhos independentes por dia. O carregamento e salvamento sem perda, a seleção de outros anos e a atualização do resumo junto a cada nó permanecem nas próximas fatias, após as decisões de persistência e política de salvamento.
 
 ## Registros de decisão
 

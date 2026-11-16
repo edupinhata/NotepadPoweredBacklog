@@ -1,0 +1,11 @@
+.annual-calendar .tree-cell:today {
+    -fx-font-weight: bold;
+}
+
+.annual-calendar .tree-cell:future {
+    -fx-text-fill: #888888;
+}
+
+.annual-calendar .tree-cell:future:selected {
+    -fx-text-fill: -fx-selection-bar-text;
+}

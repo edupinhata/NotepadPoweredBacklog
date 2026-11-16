@@ -17,7 +17,7 @@ Em caso de conflito, não escolha silenciosamente. Registre a divergência e pe�
 
 ## 2. Estado atual
 
-O projeto possui uma primeira fatia vertical executável em Java 21, JavaFX e Maven. O parser, o resumo em memória e a prévia JavaFX estão implementados; persistência, navegação anual completa, estatísticas por intervalo e automação de movimentação continuam planejadas. Não invente decisões ausentes nem apresente funcionalidades planejadas como implementadas.
+O projeto possui uma primeira fatia vertical executável em Java 21, JavaFX e Maven. O parser, o resumo em memória e a prévia JavaFX estão implementados; a árvore do ano atual com semanas ISO e rascunhos diários em memória também está implementada. Persistência, seleção de outros anos, estatísticas por intervalo e automação de movimentação continuam planejadas. Não invente decisões ausentes nem apresente funcionalidades planejadas como implementadas.
 
 ## 3. Fluxo obrigatório para mudanças
 

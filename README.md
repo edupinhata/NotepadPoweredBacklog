@@ -2,7 +2,7 @@
 
 Aplicação para organizar tarefas, reuniões e períodos trabalhados por meio de arquivos de texto simples, preservando uma experiência próxima à de um bloco de notas.
 
-> **Estado:** primeira fatia vertical do MVP em desenvolvimento. Já existe uma prévia JavaFX executável que interpreta o documento canônico em memória e calcula o resumo diário; persistência e navegação anual ainda não foram implementadas.
+> **Estado:** primeira fatia vertical do MVP em desenvolvimento. Já existe uma prévia JavaFX executável que interpreta o documento canônico em memória e calcula o resumo diário; a árvore do ano atual e rascunhos por dia estão disponíveis; persistência ainda não foi implementada.
 
 ## Visão geral
 
@@ -46,7 +46,9 @@ O produto interpreta marcações textuais para acompanhar estados, mover itens e
 - contagem de reuniões e tarefas com estados reconhecidos;
 - soma de períodos válidos e diagnóstico de horários inválidos ou invertidos;
 - preservação integral do texto analisado em memória;
-- prévia JavaFX com semana e dia atuais, editor, resumo e diagnósticos.
+- prévia JavaFX com todos os dias do ano atual agrupados em semanas ISO, editor, resumo e diagnósticos;
+- hoje em negrito, datas futuras em cinza claro e semana atual expandida;
+- rascunhos independentes por dia, preservados ao alternar datas durante a execução.
 
 ### Pendente de decisão
 
@@ -76,6 +78,8 @@ python scripts/ai_usage.py report
 ```
 
 `mvn javafx:run` abre a prévia local. O texto é mantido apenas em memória nesta fatia: fechar a janela descarta as alterações. Localização, nomes e política de salvamento dos documentos continuam pendentes de decisão e não devem ser inferidos da prévia.
+
+O calendário usa o ano civil atual e identifica cada semana pelo número e ano ISO. Hoje é definido ao abrir a janela. As demais semanas podem ser expandidas; selecionar um dia troca o rascunho e atualiza seu resumo. Selecionar ano ou semana mantém o editor atual. A seleção de datas futuras usa a cor de texto do tema para preservar a legibilidade. Não há seletor de ano nem atualização automática à meia-noite nesta fatia.
 
 ## Licença
 

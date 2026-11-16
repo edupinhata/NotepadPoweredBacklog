@@ -40,3 +40,10 @@ Esses títulos pertencem ao formato inicial do documento e não devem ser traduz
 - Evite sinônimos no código sem uma decisão explícita.
 - Atualize critérios de aceite e ADRs afetados quando uma definição mudar.
 - Não transforme uma interpretação provisória em regra de negócio sem aprovação.
+
+## Calendário e rascunhos em memória
+
+- `AnnualCalendar`: agrupamento de todas as datas de um ano civil por semana ISO.
+- `Week`: grupo identificado por `weekBasedYear` e `weekNumber`, limitado às datas do ano civil exibido.
+- `DayStyle`: classificação visual de uma data como `PAST`, `TODAY` ou `FUTURE`, relativa ao dia de abertura da janela.
+- `DailyDocumentDrafts`: textos independentes por `LocalDate`, mantidos somente durante a execução da prévia.

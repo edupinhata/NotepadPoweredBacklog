@@ -18,8 +18,10 @@ O documento diário contém três seções:
 
 - [ ] O usuário consegue criar, abrir, editar e salvar o documento de um dia.
 - [ ] A janela apresenta no painel esquerdo as semanas do ano selecionado, com os respectivos dias agrupados.
-- [ ] A semana atual começa expandida; as demais podem ser expandidas sem bloquear a interface.
-- [ ] Selecionar um dia apresenta seu documento no editor à direita.
+- [x] A semana atual começa expandida; as demais podem ser expandidas sem bloquear a interface.
+- [ ] Selecionar um dia apresenta seu documento no editor à direita (rascunhos em memória implementados; carregamento persistido pendente).
+- [x] A árvore apresenta todas as datas do ano civil atual, agrupadas por semana e ano ISO.
+- [x] Hoje aparece em negrito e datas futuras em cinza claro; a seleção mantém contraste usando a cor do tema.
 - [ ] Cada dia apresenta o resumo `número de reuniões | número de tarefas | horas trabalhadas`.
 - [ ] O número de reuniões e tarefas considera todos os itens reconhecidos, independentemente do estado.
 - [ ] As horas trabalhadas correspondem à soma dos períodos válidos, sem contar os intervalos entre eles.

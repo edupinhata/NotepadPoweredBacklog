@@ -34,3 +34,5 @@ issue → teste → implementação → verificação → PR
 |---|---|---|
 | [Primeira fatia vertical do MVP](2026-08-29-mvp-first-vertical-slice.md) | Criar fundação executável, parser, resumo e prévia JavaFX em memória | Em execução |
 | [Coletor confiável de custo de desenvolvimento](2026-08-29-ai-usage-tracker.md) | Medir uso de IA por unidade de trabalho com persistência auditável e fail-closed | Em execução |
+
+- [Calendário anual em memória](2026-11-16-annual-calendar.md): todas as datas e semanas do ano atual, estilos temporais e rascunhos por dia.
